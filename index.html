@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="ar">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>قطاعات الأعمال بالنسب الدائرية</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            direction: rtl;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+            color: #333;
+        }
+
+        .container {
+            display: flex;
+            justify-content: space-around;
+            margin: 50px auto;
+            width: 80%;
+        }
+
+        .sector-box {
+            width: 150px;
+            height: 150px;
+            background-color: #444;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            color: #fff;
+            margin: 10px;
+        }
+
+        .sector-box:hover {
+            background-color: #555;
+        }
+
+        .circle-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            margin-top: 20px;
+        }
+
+        .circle-box {
+            position: relative;
+            width: 120px;
+            height: 120px;
+            margin: 10px;
+        }
+
+        svg {
+            transform: rotate(-90deg);
+            width: 100%;
+            height: 100%;
+        }
+
+        .circle-background {
+            fill: none;
+            stroke: #d3d3d3;
+            stroke-width: 10;
+        }
+
+        .circle-progress {
+            fill: none;
+            stroke: #6A0DAD;
+            /* لون النسبة */
+            stroke-width: 10;
+            stroke-linecap: round;
+            stroke-dasharray: 440;
+            stroke-dashoffset: 440;
+            transition: stroke-dashoffset 1s linear;
+            /* حركة خط مستقيمة */
+        }
+
+        .circle-percentage {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 16px;
+            font-weight: bold;
+        }
+
+        .label {
+            margin-top: 10px;
+            font-size: 14px;
+            color: #333;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="sector-box" data-sector="الصناعة">الصناعة</div>
+        <div class="sector-box" data-sector="الزراعة">الزراعة</div>
+        <div class="sector-box" data-sector="الملابس">الملابس</div>
+        <div class="sector-box" data-sector="الإعلام">الإعلام</div>
+    </div>
+
+    <div class="circle-container" id="circle-container">
+        <!-- ستة دوائر للنسب -->
+        <div class="circle-box">
+            <svg>
+                <circle cx="50%" cy="50%" r="50" class="circle-background" />
+                <circle cx="50%" cy="50%" r="50" class="circle-progress" id="progress-circle-1" />
+            </svg>
+            <div class="circle-percentage" id="percentage-1">0%</div>
+            <div class="label">نسبة الربح</div>
+        </div>
+        <div class="circle-box">
+            <svg>
+                <circle cx="50%" cy="50%" r="50" class="circle-background" />
+                <circle cx="50%" cy="50%" r="50" class="circle-progress" id="progress-circle-2" />
+            </svg>
+            <div class="circle-percentage" id="percentage-2">0%</div>
+            <div class="label">نسبة الخسارة</div>
+        </div>
+        <div class="circle-box">
+            <svg>
+                <circle cx="50%" cy="50%" r="50" class="circle-background" />
+                <circle cx="50%" cy="50%" r="50" class="circle-progress" id="progress-circle-3" />
+            </svg>
+            <div class="circle-percentage" id="percentage-3">0%</div>
+            <div class="label">نسبة العاملين</div>
+        </div>
+        <div class="circle-box">
+            <svg>
+                <circle cx="50%" cy="50%" r="50" class="circle-background" />
+                <circle cx="50%" cy="50%" r="50" class="circle-progress" id="progress-circle-4" />
+            </svg>
+            <div class="circle-percentage" id="percentage-4">0%</div>
+            <div class="label">نسبة دعم الدولة</div>
+        </div>
+        <div class="circle-box">
+            <svg>
+                <circle cx="50%" cy="50%" r="50" class="circle-background" />
+                <circle cx="50%" cy="50%" r="50" class="circle-progress" id="progress-circle-5" />
+            </svg>
+            <div class="circle-percentage" id="percentage-5">0%</div>
+            <div class="label">نسبة تدخل الآلة</div>
+        </div>
+        <div class="circle-box">
+            <svg>
+                <circle cx="50%" cy="50%" r="50" class="circle-background" />
+                <circle cx="50%" cy="50%" r="50" class="circle-progress" id="progress-circle-6" />
+            </svg>
+            <div class="circle-percentage" id="percentage-6">0%</div>
+            <div class="label">نسبة حب البشر</div>
+        </div>
+    </div>
+
+    <script>
+        const sectorData = {
+            "الصناعة": [85, 10, 50, 60, 70, 90],
+            "الزراعة": [70, 20, 40, 50, 30, 80],
+            "الملابس": [60, 30, 45, 40, 50, 75],
+            "الإعلام": [90, 5, 55, 70, 60, 95]
+        };
+
+        const circles = document.querySelectorAll('.circle-progress');
+        const percentages = document.querySelectorAll('.circle-percentage');
+        let intervals = [];
+        let currentSector = null;
+        let isResetting = false;
+
+        circles.forEach(circle => {
+            const radius = circle.r.baseVal.value;
+            const circumference = 2 * Math.PI * radius;
+            circle.style.strokeDasharray = `${circumference}`;
+            circle.style.strokeDashoffset = `${circumference}`;
+        });
+
+        function animateProgress(value, circle, percentageElement, index) {
+            clearInterval(intervals[index]);
+            let currentPercentage = 0;
+            const radius = circle.r.baseVal.value;
+            const circumference = 2 * Math.PI * radius;
+            intervals[index] = setInterval(() => {
+                if (currentPercentage >= value || isResetting) {
+                    clearInterval(intervals[index]);
+                } else {
+                    currentPercentage += 1;
+                    percentageElement.textContent = `${Math.floor(currentPercentage)}%`;
+                    circle.style.strokeDashoffset = circumference - (currentPercentage / 100) * circumference;
+                }
+            }, 20);
+        }
+
+        function resetProgress(circle, percentageElement, index, callback) {
+            clearInterval(intervals[index]);
+            let currentPercentage = parseInt(percentageElement.textContent);
+            const radius = circle.r.baseVal.value;
+            const circumference = 2 * Math.PI * radius;
+            isResetting = true;
+
+            intervals[index] = setInterval(() => {
+                if (currentPercentage <= 0) {
+                    clearInterval(intervals[index]);
+                    isResetting = false;
+                    if (callback) callback();
+                } else {
+                    currentPercentage -= 1;
+                    percentageElement.textContent = `${Math.floor(currentPercentage)}%`;
+                    circle.style.strokeDashoffset = circumference - (currentPercentage / 100) * circumference;
+                }
+            }, 10);
+        }
+
+        function startSectorAnimation(sectorName) {
+            const data = sectorData[sectorName];
+            data.forEach((value, index) => {
+                animateProgress(value, circles[index], percentages[index], index);
+            });
+        }
+
+        const sectors = document.querySelectorAll('.sector-box');
+        sectors.forEach(sector => {
+            sector.addEventListener('mouseover', () => {
+                const sectorName = sector.getAttribute('data-sector');
+                if (currentSector === sectorName) return;
+
+                currentSector = sectorName;
+                isResetting = true;
+
+                let resetCount = 0;
+                circles.forEach((circle, index) => {
+                    resetProgress(circle, percentages[index], index, () => {
+                        resetCount++;
+                        if (resetCount === circles.length) {
+                            isResetting = false;
+                            startSectorAnimation(currentSector);
+                        }
+                    });
+                });
+            });
+
+            sector.addEventListener('mouseout', () => {
+                currentSector = null;
+                circles.forEach((circle, index) => {
+                    resetProgress(circle, percentages[index], index, () => { });
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>
