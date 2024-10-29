@@ -4,28 +4,52 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>قطاعات الأعمال بالنسب الدائرية</title>
+    <title>fo2sh</title>
     <style>
         body {
             font-family: Arial, sans-serif;
             direction: rtl;
             text-align: center;
+            background-color: #000;
+            color: #fff;
             margin: 0;
             padding: 0;
-            background-color: #f0f0f0;
-            color: #333;
+            overflow-x: hidden;
         }
 
-        .container {
+        .content-wrapper {
+            width: 100%;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        .section-container {
+            display: grid;
+            grid-template-areas:
+                "left center right"
+                "left center right"
+                "left center right"
+                "left center right"
+                "left center right"
+                "bottom bottom bottom";
+            grid-template-columns: 1fr 2fr 1fr;
+            gap: 10px;
+            width: 100%;
+            margin: 0;
+            padding: 20px;
+            background-color: #000;
+        }
+
+        .section-boxes {
             display: flex;
-            justify-content: space-around;
-            margin: 50px auto;
-            width: 80%;
+            justify-content: space-between;
+            width: 100%;
+            margin-bottom: 20px;
         }
 
-        .sector-box {
-            width: 150px;
-            height: 150px;
+        .section-box {
+            flex: 1;
+            height: 60px;
             background-color: #444;
             display: flex;
             justify-content: center;
@@ -34,221 +58,304 @@
             cursor: pointer;
             transition: background-color 0.3s;
             color: #fff;
-            margin: 10px;
+            font-size: 16px;
+            font-weight: bold;
+            margin: 0 10px;
         }
 
-        .sector-box:hover {
+        .section-box:hover {
             background-color: #555;
         }
 
-        .circle-container {
+        .right-buttons,
+        .left-buttons,
+        .bottom-buttons {
             display: flex;
-            flex-wrap: wrap;
-            justify-content: space-around;
-            margin-top: 20px;
+            gap: 10px;
+            width: 100%;
         }
 
-        .circle-box {
-            position: relative;
-            width: 120px;
-            height: 120px;
-            margin: 10px;
+        .right-buttons {
+            grid-area: right;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .left-buttons {
+            grid-area: left;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .bottom-buttons {
+            grid-area: bottom;
+            justify-content: center;
+        }
+
+        .button {
+            width: 100%;
+            height: 60px;
+            background-color: transparent;
+            color: white;
+            font-size: 14px;
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            border-radius: 8px;
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            /* Start hidden for animation */
+            animation: slideIn 0.5s ease-out forwards;
+            transition: background-color 0.3s, border-color 0.3s;
+        }
+
+        .button:hover {
+            background-color: #320A4F;
+            border-color: rgba(255, 255, 255, 0.5);
+            color: white;
+        }
+
+        /* Slide-in animation for buttons */
+        @keyframes slideIn {
+            0% {
+                transform: translateY(20px);
+                opacity: 0;
+            }
+
+            100% {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        /* Staggered animation delay for each button */
+        .button:nth-child(1) {
+            animation-delay: 0.1s;
+        }
+
+        .button:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+
+        .button:nth-child(3) {
+            animation-delay: 0.3s;
+        }
+
+        .button:nth-child(4) {
+            animation-delay: 0.4s;
+        }
+
+        .button:nth-child(5) {
+            animation-delay: 0.5s;
+        }
+
+        .button:nth-child(6) {
+            animation-delay: 0.6s;
+        }
+
+        .button:nth-child(7) {
+            animation-delay: 0.7s;
+        }
+
+        .button:nth-child(8) {
+            animation-delay: 0.8s;
+        }
+
+        .button:nth-child(9) {
+            animation-delay: 0.9s;
+        }
+
+        .button:nth-child(10) {
+            animation-delay: 1s;
+        }
+
+        .button:nth-child(11) {
+            animation-delay: 1.1s;
+        }
+
+        .button:nth-child(12) {
+            animation-delay: 1.2s;
+        }
+
+        .fixed-progress-container {
+            grid-area: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background-color: #000;
+            border-radius: 50%;
+            padding: 20px;
+        }
+
+        .label-text {
+            font-size: 14px;
+            color: #fff;
+            margin-bottom: 10px;
+        }
+
+        .reason-text {
+            font-size: 14px;
+            color: #fff;
+            margin-top: 10px;
+            width: 80%;
+            text-align: center;
+            line-height: 1.6;
+            height: 80px;
+            overflow: hidden;
         }
 
         svg {
-            transform: rotate(-90deg);
-            width: 100%;
-            height: 100%;
+            width: 160px;
+            height: 160px;
         }
 
         .circle-background {
             fill: none;
             stroke: #d3d3d3;
-            stroke-width: 10;
+            stroke-width: 8;
         }
 
         .circle-progress {
             fill: none;
             stroke: #6A0DAD;
-            /* لون النسبة */
-            stroke-width: 10;
-            stroke-linecap: round;
-            stroke-dasharray: 440;
-            stroke-dashoffset: 440;
-            transition: stroke-dashoffset 1s linear;
-            /* حركة خط مستقيمة */
+            stroke-width: 8;
+            stroke-linecap: butt;
+            stroke-dasharray: 251.2;
+            stroke-dashoffset: 251.2;
+            transition: stroke-dashoffset 0.5s linear;
+            transform-origin: center;
+            transform: rotate(-90deg);
         }
 
-        .circle-percentage {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            font-size: 16px;
+        .percentage-text {
+            font-size: 24px;
             font-weight: bold;
-        }
-
-        .label {
-            margin-top: 10px;
-            font-size: 14px;
-            color: #333;
+            fill: #fff;
+            dominant-baseline: middle;
+            text-anchor: middle;
         }
     </style>
 </head>
 
 <body>
+    <div class="content-wrapper">
+        <div class="section-boxes">
+            <div class="section-box" onclick="showButtons('office-jobs')">قطاع الوظائف المكتبية</div>
+            <div class="section-box" onclick="showButtons('tech-jobs')">قطاع التقنية والخدمة</div>
+        </div>
 
-    <div class="container">
-        <div class="sector-box" data-sector="الصناعة">الصناعة</div>
-        <div class="sector-box" data-sector="الزراعة">الزراعة</div>
-        <div class="sector-box" data-sector="الملابس">الملابس</div>
-        <div class="sector-box" data-sector="الإعلام">الإعلام</div>
-    </div>
+        <div class="section-container">
+            <div class="left-buttons" id="left-buttons"></div>
+            <div class="right-buttons" id="right-buttons"></div>
+            <div class="bottom-buttons" id="bottom-buttons"></div>
 
-    <div class="circle-container" id="circle-container">
-        <!-- ستة دوائر للنسب -->
-        <div class="circle-box">
-            <svg>
-                <circle cx="50%" cy="50%" r="50" class="circle-background" />
-                <circle cx="50%" cy="50%" r="50" class="circle-progress" id="progress-circle-1" />
-            </svg>
-            <div class="circle-percentage" id="percentage-1">0%</div>
-            <div class="label">نسبة الربح</div>
-        </div>
-        <div class="circle-box">
-            <svg>
-                <circle cx="50%" cy="50%" r="50" class="circle-background" />
-                <circle cx="50%" cy="50%" r="50" class="circle-progress" id="progress-circle-2" />
-            </svg>
-            <div class="circle-percentage" id="percentage-2">0%</div>
-            <div class="label">نسبة الخسارة</div>
-        </div>
-        <div class="circle-box">
-            <svg>
-                <circle cx="50%" cy="50%" r="50" class="circle-background" />
-                <circle cx="50%" cy="50%" r="50" class="circle-progress" id="progress-circle-3" />
-            </svg>
-            <div class="circle-percentage" id="percentage-3">0%</div>
-            <div class="label">نسبة العاملين</div>
-        </div>
-        <div class="circle-box">
-            <svg>
-                <circle cx="50%" cy="50%" r="50" class="circle-background" />
-                <circle cx="50%" cy="50%" r="50" class="circle-progress" id="progress-circle-4" />
-            </svg>
-            <div class="circle-percentage" id="percentage-4">0%</div>
-            <div class="label">نسبة دعم الدولة</div>
-        </div>
-        <div class="circle-box">
-            <svg>
-                <circle cx="50%" cy="50%" r="50" class="circle-background" />
-                <circle cx="50%" cy="50%" r="50" class="circle-progress" id="progress-circle-5" />
-            </svg>
-            <div class="circle-percentage" id="percentage-5">0%</div>
-            <div class="label">نسبة تدخل الآلة</div>
-        </div>
-        <div class="circle-box">
-            <svg>
-                <circle cx="50%" cy="50%" r="50" class="circle-background" />
-                <circle cx="50%" cy="50%" r="50" class="circle-progress" id="progress-circle-6" />
-            </svg>
-            <div class="circle-percentage" id="percentage-6">0%</div>
-            <div class="label">نسبة حب البشر</div>
+            <div class="fixed-progress-container">
+                <div class="label-text"></div>
+                <svg viewBox="0 0 100 100">
+                    <circle cx="50" cy="50" r="40" class="circle-background" />
+                    <circle cx="50" cy="50" r="40" class="circle-progress" id="circle-progress" />
+                    <text x="50" y="55" id="percentage-text" class="percentage-text">0%</text>
+                </svg>
+
+                <div class="reason-text" id="reason-text">
+                    <div>مرر الماوس فوق الوظيفة لمعرفة السبب</div>
+                </div>
+            </div>
         </div>
     </div>
 
     <script>
-        const sectorData = {
-            "الصناعة": [85, 10, 50, 60, 70, 90],
-            "الزراعة": [70, 20, 40, 50, 30, 80],
-            "الملابس": [60, 30, 45, 40, 50, 75],
-            "الإعلام": [90, 5, 55, 70, 60, 95]
+        const jobsData = {
+            "office-jobs": [
+                { title: "مدخل بيانات", percentage: 90, reason: ["تحليل البيانات مؤتمت.", "تطبيق الأتمتة.", "تخفيض التكاليف."] },
+                { title: "مندوب تسويق عبر الهاتف", percentage: 85, reason: ["الاتصالات مؤتمتة.", "استخدام الروبوتات.", "تقليل عدد الموظفين."] },
+                { title: "أمين صندوق", percentage: 80, reason: ["دفع ذاتي يقلل الحاجة.", "تطبيق الذكاء الاصطناعي.", "زيادة كفاءة المعاملات."] },
+                { title: "محاسب", percentage: 70, reason: ["تطوير البرامج المحاسبية.", "تسريع العمليات المحاسبية.", "تقليل الحاجة للمراجعة اليدوية."] },
+                { title: "عامل خط تجميع", percentage: 75, reason: ["التصنيع مؤتمت.", "استخدام الروبوتات.", "تقليل الحاجة إلى العمالة اليدوية."] },
+                { title: "موظف استقبال", percentage: 80, reason: ["تسجيل ذاتي متقدم.", "تقنيات الخدمة الذاتية.", "تقليل أعداد موظفي الاستقبال."] },
+                { title: "موظف خدمة عملاء", percentage: 75, reason: ["التفاعل الآلي.", "تطبيق الشات بوت.", "تقليل الاحتياج لموظفي الخدمة."] },
+                { title: "مدقق لغوي", percentage: 80, reason: ["التدقيق الآلي.", "التدقيق في المستندات.", "التدقيق السريع بدقة عالية."] },
+                { title: "وكيل سفر", percentage: 80, reason: ["التطبيقات المتقدمة.", "تحسين عمليات الحجز.", "التقليل من الحاجة لوسطاء."] },
+                { title: "موظف بنك", percentage: 85, reason: ["الخدمات البنكية الذاتية.", "التطبيقات البنكية.", "تقليل الحاجة للموظفين."] },
+                { title: "مكتتب تأمين", percentage: 85, reason: ["تقييم المخاطر الآلي.", "التأمين الذكي.", "تحليل البيانات التأمينية."] },
+                { title: "أخصائي أشعة", percentage: 60, reason: ["تشخيص الصور آلياً.", "دعم التحليل الآلي.", "التقليل من عدد الأطباء."] }
+            ],
+            "tech-jobs": [
+                { title: "مهندس تعلم الآلة", percentage: 60, reason: ["تحليل الأنظمة بتعلم الآلة.", "تطوير خوارزميات.", "الاعتماد على الذكاء الاصطناعي."] },
+                { title: "محلل بيانات", percentage: 45, reason: ["زيادة الاعتماد على البيانات.", "تحليل البيانات الكبيرة.", "دعم اتخاذ القرار."] },
+                { title: "عالم بيانات", percentage: 50, reason: ["تطوير الخوارزميات.", "تحليل متقدم للبيانات.", "زيادة البيانات المعقدة."] },
+                { title: "مهندس روبوتات", percentage: 40, reason: ["زيادة الأتمتة.", "التصنيع باستخدام الروبوتات.", "تقليل تكاليف اليد العاملة."] },
+                { title: "خبير الأمن السيبراني", percentage: 55, reason: ["تزايد الهجمات السيبرانية.", "حماية البيانات الحساسة.", "تطوير استراتيجيات الأمان."] },
+                { title: "مهندس برمجيات", percentage: 35, reason: ["التطوير المستمر.", "زيادة التطبيقات.", "حاجة مستمرة للتحديث."] },
+                { title: "مدير منتجات تقنية", percentage: 40, reason: ["التطوير السريع.", "تنظيم المشاريع.", "تحقيق التوافق مع التقنية."] },
+                { title: "مطوّر تطبيقات", percentage: 30, reason: ["الطلب المتزايد.", "تزايد الهواتف الذكية.", "تقديم حلول ذكية."] },
+                { title: "محلل ذكاء الأعمال", percentage: 50, reason: ["تحليل استراتيجي.", "دعم القرار.", "زيادة البيانات التنافسية."] },
+                { title: "خبير تجربة المستخدم (UX/UI)", percentage: 45, reason: ["تحسين الواجهة.", "جذب المستخدمين.", "تلبية توقعات المستخدمين."] },
+                { title: "مختص تسويق رقمي", percentage: 55, reason: ["التسويق الرقمي.", "زيادة التجارة الإلكترونية.", "تحسين الوصول."] },
+                { title: "أخصائي أخلاقيات التقنية", percentage: 40, reason: ["ضبط استخدام التقنية.", "تطوير السياسات الأخلاقية.", "توجيه الاستخدام المسؤول."] }
+            ]
         };
 
-        const circles = document.querySelectorAll('.circle-progress');
-        const percentages = document.querySelectorAll('.circle-percentage');
-        let intervals = [];
-        let currentSector = null;
-        let isResetting = false;
+        function showButtons(section) {
+            const rightButtons = document.getElementById('right-buttons');
+            const leftButtons = document.getElementById('left-buttons');
+            const bottomButtons = document.getElementById('bottom-buttons');
 
-        circles.forEach(circle => {
+            rightButtons.innerHTML = '';
+            leftButtons.innerHTML = '';
+            bottomButtons.innerHTML = '';
+
+            const labelTextElement = document.querySelector('.label-text');
+            if (section === 'office-jobs') {
+                labelTextElement.textContent = 'نسبة الزيادة المتوقعة في الوظائف المكتبية';
+            } else if (section === 'tech-jobs') {
+                labelTextElement.textContent = 'نسبة الزيادة المتوقعة في قطاع التقنية والخدمة';
+            }
+
+            const buttons = jobsData[section].map((job, index) => {
+                const button = document.createElement('div');
+                button.classList.add('button');
+                button.textContent = job.title;
+
+                button.addEventListener('mouseover', () => {
+                    animateProgress(job.percentage);
+                    document.getElementById('reason-text').innerHTML = job.reason.map(r => `<div>${r}</div>`).join("");
+                });
+
+                button.addEventListener('mouseout', resetProgress);
+                return button;
+            });
+
+            leftButtons.append(...buttons.slice(0, 4));
+            rightButtons.append(...buttons.slice(4, 8));
+            bottomButtons.append(...buttons.slice(8, 12));
+        }
+
+        function animateProgress(targetPercentage) {
+            const circle = document.getElementById('circle-progress');
+            const textElement = document.getElementById('percentage-text');
             const radius = circle.r.baseVal.value;
             const circumference = 2 * Math.PI * radius;
+
             circle.style.strokeDasharray = `${circumference}`;
-            circle.style.strokeDashoffset = `${circumference}`;
-        });
+            const targetOffset = circumference - (targetPercentage / 100) * circumference;
 
-        function animateProgress(value, circle, percentageElement, index) {
-            clearInterval(intervals[index]);
-            let currentPercentage = 0;
+            circle.style.strokeDashoffset = targetOffset;
+            textElement.textContent = `${targetPercentage}%`;
+        }
+
+        function resetProgress() {
+            const circle = document.getElementById('circle-progress');
+            const textElement = document.getElementById('percentage-text');
             const radius = circle.r.baseVal.value;
             const circumference = 2 * Math.PI * radius;
-            intervals[index] = setInterval(() => {
-                if (currentPercentage >= value || isResetting) {
-                    clearInterval(intervals[index]);
-                } else {
-                    currentPercentage += 1;
-                    percentageElement.textContent = `${Math.floor(currentPercentage)}%`;
-                    circle.style.strokeDashoffset = circumference - (currentPercentage / 100) * circumference;
-                }
-            }, 20);
+
+            circle.style.strokeDashoffset = circumference;
+            textElement.textContent = '0%';
+            document.getElementById('reason-text').innerHTML = '<div>مرر الماوس فوق الوظيفة لمعرفة السبب</div>';
         }
-
-        function resetProgress(circle, percentageElement, index, callback) {
-            clearInterval(intervals[index]);
-            let currentPercentage = parseInt(percentageElement.textContent);
-            const radius = circle.r.baseVal.value;
-            const circumference = 2 * Math.PI * radius;
-            isResetting = true;
-
-            intervals[index] = setInterval(() => {
-                if (currentPercentage <= 0) {
-                    clearInterval(intervals[index]);
-                    isResetting = false;
-                    if (callback) callback();
-                } else {
-                    currentPercentage -= 1;
-                    percentageElement.textContent = `${Math.floor(currentPercentage)}%`;
-                    circle.style.strokeDashoffset = circumference - (currentPercentage / 100) * circumference;
-                }
-            }, 10);
-        }
-
-        function startSectorAnimation(sectorName) {
-            const data = sectorData[sectorName];
-            data.forEach((value, index) => {
-                animateProgress(value, circles[index], percentages[index], index);
-            });
-        }
-
-        const sectors = document.querySelectorAll('.sector-box');
-        sectors.forEach(sector => {
-            sector.addEventListener('mouseover', () => {
-                const sectorName = sector.getAttribute('data-sector');
-                if (currentSector === sectorName) return;
-
-                currentSector = sectorName;
-                isResetting = true;
-
-                let resetCount = 0;
-                circles.forEach((circle, index) => {
-                    resetProgress(circle, percentages[index], index, () => {
-                        resetCount++;
-                        if (resetCount === circles.length) {
-                            isResetting = false;
-                            startSectorAnimation(currentSector);
-                        }
-                    });
-                });
-            });
-
-            sector.addEventListener('mouseout', () => {
-                currentSector = null;
-                circles.forEach((circle, index) => {
-                    resetProgress(circle, percentages[index], index, () => { });
-                });
-            });
-        });
     </script>
 </body>
 
