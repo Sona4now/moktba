@@ -2,25 +2,621 @@
 <html lang="ar">
 
 <head>
+    <script defer src="app.js"></script>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>fo2sh</title>
+    <title> maktba </title>
+    <meta name="discipton" content="ana bkro kosm amr diab 3il sharmot">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconn  ect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@700&display=swap" rel="stylesheet">
+    <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <link rel="stylesheet" href="styles.css">
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            direction: rtl;
-            text-align: center;
-            background-color: #000;
-            color: #fff;
-            margin: 0;
-            padding: 0;
-            overflow-x: hidden;
+        html {
+            scroll-behavior: smooth;
         }
 
-        .content-wrapper {
+        body {
+            background-color: black;
+            padding: 0;
+            margin: 0;
+            font-family: 'Poppins';
             width: 100%;
+        }
+
+
+
+
+        body {
+            background-color: black;
+            padding: 0;
+            margin: 0;
+            font-family: 'Poppins';
+            width: 100%;
+        }
+
+        #intro,
+        #what,
+        #chan,
+        #end {
+            width: calc(100% - 200px);
+            margin: 280px 100px 0px 100px;
+        }
+
+
+        /* *, *::before, *::after {
+    box-sizing: border-box;
+} */
+
+
+        /* .grid {
+    background-color: #ddd;
+    padding: 20px;
+    width: 800px;
+    height: 400px;
+    display: grid;
+    grid-template-rows: 1fr 1fr 1fr; 
+     grid-template-columns: repeat(6 ,1fr);
+     grid-template-areas: 
+     "eight eight eight"
+     "two two three"
+     "four fife fife"
+     "sex fife fife"
+     "seven fife fife "
+     "one one one "
+     ;
+     align-content: space-between;
+     gap: 10px 10px ;
+     text-align: center;
+    }*/
+        #head {
+            width: 100%;
+            height: 1080px;
+            /* أو يمكنك استخدام ارتفاع نسبي مثل 100vh لملء الشاشة */
+            background-color: beige;
+            position: relative;
+        }
+
+        #head div {
+            width: 730px;
+            height: 192px;
+            color: #FFF;
+            text-align: center;
+            font-size: 4rem;
+            font-style: normal;
+            font-weight: 800;
+            line-height: normal;
+            text-transform: capitalize;
+            height: 96px;
+            position: absolute;
+            top: 348px;
+            right: 355px;
+        }
+
+        #head img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+        }
+
+        #after {
+            display: flex;
+            width: calc(100% - 200px);
+            /* تقليل العرض بنسبة المارجن */
+            justify-content: flex-end;
+            gap: 75px;
+            flex-wrap: wrap;
+            color: #FFF;
+            background-color: transparent;
+            margin: 100px auto 0 auto;
+            /* توسيط العنصر أفقياً */
+            padding: 0 100px;
+            /* إضافة بادينغ بدلاً من مارجن */
+        }
+
+        #after div {
+            display: flex;
+            height: 30px;
+            min-width: 280px;
+            padding: 16px;
+            padding-top: 60px;
+            flex-direction: column;
+            align-items: flex-end;
+            gap: 16px;
+            height: 80px;
+            flex: 1 0 0;
+            border-radius: 8px;
+            border: 1px solid var(--gray-300, #D1D5DB);
+            position: relative;
+        }
+
+        #after button {
+            width: 100%;
+            height: 100%;
+            background-color: transparent;
+            border: 0px none none;
+            border-width: 0px;
+            position: absolute;
+            top: 0px;
+            right: 0px;
+            border-radius: 7%;
+
+        }
+
+        #after p {
+            align-self: stretch;
+            color: #FFF;
+            text-align: right;
+            font-family: Poppins;
+            font-size: 20px;
+            font-style: normal;
+            font-weight: 600;
+            line-height: normal;
+            text-transform: capitalize;
+            margin-top: 40px;
+            margin-right: 10px;
+
+        }
+
+        #intro {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            color: white;
+            margin-left: 100px;
+            border-radius: 32px;
+            background: url(<path-to-image>) lightgray 50% / cover no-repeat, #D9D9D9;
+            position: relative;
+        }
+
+        #intro img {
+            width: 603px;
+            height: 497px;
+            flex-shrink: 0;
+            border-radius: 32px;
+            background: url(<path-to-image>) lightgray 50% / cover no-repeat, #D9D9D9;
+        }
+
+        #intro p {
+            width: 556px;
+            color: var(--gray-300, #D1D5DB);
+            text-align: right;
+            font-family: Poppins;
+            font-size: 24px;
+            font-style: normal;
+            font-weight: 500;
+            line-height: normal;
+            text-transform: capitalize;
+            position: absolute;
+            top: 98px;
+            right: 0px;
+        }
+
+        #intro div {
+            color: #FFF;
+            text-align: right;
+            font-family: Poppins;
+            font-size: 32px;
+            font-style: normal;
+            font-weight: 700;
+            line-height: normal;
+            text-transform: capitalize;
+            position: absolute;
+            width: 448px;
+            height: 48px;
+            top: 0px;
+            right: 0px;
+        }
+
+        #intro hr {
+            width: 363px;
+            height: 2px;
+            border-radius: 7px;
+            background: #6A0DAD;
+            flex-shrink: 0;
+            position: absolute;
+            top: 52px;
+            right: 0px;
+        }
+
+        #what {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            color: white;
+            border-radius: 32px;
+            background: url(<path-to-image>) lightgray 50% / cover no-repeat, #D9D9D9;
+            position: relative;
+            height: 398px;
+
+        }
+
+        #what p {
+            width: 556px;
+            color: var(--gray-300, #D1D5DB);
+            text-align: right;
+            font-family: Poppins;
+            font-size: 24px;
+            font-style: normal;
+            font-weight: 500;
+            line-height: normal;
+            text-transform: capitalize;
+            position: absolute;
+            top: 98px;
+            left: 0px;
+        }
+
+        #what div {
+            color: #FFF;
+            text-align: right;
+            font-family: Poppins;
+            font-size: 32px;
+            font-style: normal;
+            font-weight: 700;
+            line-height: normal;
+            text-transform: capitalize;
+            position: absolute;
+            width: 556px;
+            height: 48px;
+            top: 0px;
+            left: 0px;
+        }
+
+        #what hr {
+            width: 363px;
+            height: 2px;
+            border-radius: 7px;
+            background: #6A0DAD;
+            flex-shrink: 0;
+            position: absolute;
+            top: 52px;
+            left: 191px;
+        }
+
+        #what img {
+            position: absolute;
+            right: 0px;
+
+        }
+
+        #chan {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            color: white;
+            border-radius: 32px;
+            background: url(<path-to-image>) lightgray 50% / cover no-repeat, #D9D9D9;
+            position: relative;
+        }
+
+        #chan p {
+            width: 556px;
+            color: var(--gray-300, #D1D5DB);
+            text-align: right;
+            font-family: Poppins;
+            font-size: 24px;
+            font-style: normal;
+            font-weight: 500;
+            line-height: normal;
+            text-transform: capitalize;
+            position: absolute;
+            top: 98px;
+            right: 0px;
+
+        }
+
+        #chan div {
+            color: #FFF;
+            text-align: right;
+            font-family: Poppins;
+            font-size: 32px;
+            font-style: normal;
+            font-weight: 700;
+            line-height: normal;
+            text-transform: capitalize;
+            position: absolute;
+            width: auto;
+            height: 48px;
+            top: 0px;
+            right: 0px;
+        }
+
+        #chan hr {
+            width: 363px;
+            height: 2px;
+            border-radius: 7px;
+            background: #6A0DAD;
+            flex-shrink: 0;
+            position: absolute;
+            top: 52px;
+            right: 0px;
+        }
+
+        #end {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            color: white;
+            border-radius: 32px;
+            background: url(<path-to-image>) lightgray 50% / cover no-repeat, #D9D9D9;
+            position: relative;
+            height: 398px;
+
+        }
+
+        #end p {
+            width: 556px;
+            color: var(--gray-300, #D1D5DB);
+            text-align: right;
+            font-family: Poppins;
+            font-size: 24px;
+            font-style: normal;
+            font-weight: 500;
+            line-height: normal;
+            text-transform: capitalize;
+            position: absolute;
+            top: 98px;
+            left: 0px;
+        }
+
+        #end div {
+            color: #FFF;
+            text-align: right;
+            font-family: Poppins;
+            font-size: 32px;
+            font-style: normal;
+            font-weight: 700;
+            line-height: normal;
+            text-transform: capitalize;
+            position: absolute;
+            width: 556px;
+            height: 48px;
+            top: 0px;
+            left: 0px;
+        }
+
+        #end hr {
+            width: 363px;
+            height: 2px;
+            border-radius: 7px;
+            background: #6A0DAD;
+            flex-shrink: 0;
+            position: absolute;
+            top: 52px;
+            left: 191px;
+        }
+
+        #end img {
+            position: absolute;
+            right: 0px;
+
+        }
+
+        .pep {
+            transform: translateX(100px) translateY(100px);
+            opacity: 0;
+            filter: blur(5px);
+            transition: all 2s;
+        }
+
+        .after1,
+        .after4 {
+            transform: translateX(-50%) translateY(0);
+            opacity: 0;
+            filter: blur(5px);
+            transition: all 2s;
+        }
+
+        .after3,
+        .after6 {
+            transform: translateX(50%) translateY(100px);
+            opacity: 0;
+            filter: blur(5px);
+            transition: all 2s;
+        }
+
+        .after2,
+        .after5 {
+            transform: translateY(100px);
+            opacity: 0;
+            filter: blur(5px);
+            transition: all 2s;
+        }
+
+        .show {
+            transform: translateX(0) translateY(0);
+            opacity: 1;
+            filter: blur(0);
+        }
+
+
+
+
+
+        .card {
+            display: flex;
+            flex-direction: column;
+            cursor: pointer;
+            transition: transform 0.4s;
+            height: 300px;
+            width: 360px;
+            background: transparent;
+            border: 5px none none;
+            border-width: 0px;
+            border-radius: 7%;
+            border: 1px solid;
+            color: #eee;
+            position: relative;
+
+        }
+
+        .kol {
+            width: 100%;
+            height: 70%;
+            position: relative;
+            right: 0px;
+            top: 0px;
+
+
+        }
+
+        #nio {
+            width: 100%;
+            height: 100%;
+            position: relative;
+            right: 0px;
+            border-top-left-radius: 7%;
+            border-top-right-radius: 7%;
+        }
+
+        h3 {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .card:hover {
+            transform: scale(1.05);
+            transform: translateY(10px);
+        }
+
+        #displayText {
+            perspective: 1000px;
+            /* لتحسين العمق */
+        }
+
+        #displayText .card {
+            transform-style: preserve-3d;
+            /* تأثير ثلاثي الأبعاد */
+            transition: transform 1s ease, opacity 0.5s ease;
+            opacity: 0;
+            /* لبدء الحركة من العدم */
+            transform: rotateY(90deg);
+            /* بداية الدوران */
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            background: linear-gradient(145deg, #ffffff, #f0f0f0);
+            /* تدرج خلفية عصري */
+            border-radius: 15px;
+            /* padding: 20px; */
+            filter: blur(10px);
+            /* تبدأ بتشويش */
+            margin: 20px;
+        }
+
+        #displayText .card.animate__fadeIn {
+            transform: rotateY(0deg);
+            /* الدوران إلى الوضع الطبيعي */
+            opacity: 1;
+            /* الظهور */
+            filter: blur(0);
+            /* إزالة التشويش تدريجياً */
+        }
+
+        #articleText {
+            color: #34495e;
+            font-size: 1.3em;
+            line-height: 1.8;
+            color: #fff;
+            direction: rtl;
+            text-align: justify;
+    text-indent: 0;
+    direction: rtl;
+        }
+
+        /* el card */
+        #displayText .card {
+            transition: all 0.8s ease-in-out;
+            background: transparent;
+            /* تدرج خلفية */
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2), 0 8px 15px rgba(0, 0, 0, 0.1) inset;
+            border-radius: 20px;
+            /* زوايا منحنية */
+            opacity: 0;
+            transform: scale(0.8) rotateX(180deg);
+            display: block;
+            width: 100%;
+            margin: 100px;
+            right: 100px;
+            position: relative;
+            /* background: linear-gradient(135deg, #6A0DAD, #A350DE, #D1D5DB, #71717A, #000000); */
+            color: #eee;
+            /* background: linear-gradient(135deg, #6A0DAD, #A350DE, #D1D5DB, #71717A, #000000); */
+            color: #FFF;
+            direction: rtl !important;
+            text-align: justify;
+            text-indent: 0;
+            direction: rtl;
+            height: auto;
+            padding-bottom: 10px;
+        }
+
+        .aas {
+            display: block;
+
+        }
+
+        #displayText .card.animate__fadeIn {
+            opacity: 1;
+            transform: scale(1) rotateX(0);
+            filter: blur(0);
+        }
+
+        /* Add this CSS to your stylesheet */
+        #ticker-container {
+            width: 100%;
+            position: relative;
+            overflow: hidden;
+            /* إخفاء العناصر التي تخرج عن العرض */
+
+        }
+
+        #sectors {
+            display: flex;
+            white-space: nowrap;
+            animation: scroll 15s linear infinite;
+
+        }
+
+        .sector {
+            display: inline-block;
+            margin: 0 20px;
+
+        }
+
+        @keyframes scroll {
+            0% {
+                transform: translateX(0);
+                /* ابدأ من بداية العناصر */
+            }
+
+            100% {
+                transform: translateX(-50%);
+                /* انتقل عبر نصف العرض */
+            }
+        }
+
+        #containermt-5 {
+            padding-left: 100px;
+        }
+
+        #ppi {
+            padding: 0px;
+
+        }
+
+        .kol {
+            border-radius: 0%;
+        }
+        .content-wrapper {
+            width: calc(100% -200px);
             padding: 20px;
             box-sizing: border-box;
+            margin: 180px 100px;
         }
 
         .section-container {
@@ -50,7 +646,7 @@
         .section-box {
             flex: 1;
             height: 60px;
-            background-color: #444;
+            /* background-color: #444; */
             display: flex;
             justify-content: center;
             align-items: center;
@@ -61,6 +657,7 @@
             font-size: 16px;
             font-weight: bold;
             margin: 0 10px;
+            border: 1px solid ;
         }
 
         .section-box:hover {
@@ -68,11 +665,17 @@
         }
 
         .right-buttons,
-        .left-buttons,
-        .bottom-buttons {
+        .left-buttons
+         {
+            display: flex;
+            gap: 40px;
+            width: 100%;
+        }
+        .bottom-buttons{
             display: flex;
             gap: 10px;
             width: 100%;
+            margin-top: 40px;
         }
 
         .right-buttons {
@@ -233,130 +836,490 @@
             font-size: 24px;
             font-weight: bold;
             fill: #fff;
-            dominant-baseline: middle;
+            /* dominant-baseline: middle; */
             text-anchor: middle;
         }
+     .lop {
+    color: #fff;
+    font-size: 24px;
+    margin-bottom: 20px;
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+
+        /* #ppi div{
+    margin: 2px;
+} */
     </style>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('show');
+                    } else {
+                        entry.target.classList.remove('show');
+                    }
+                });
+            });
+
+            const hiddenElements = document.querySelectorAll('.pep');
+            hiddenElements.forEach((el) => observer.observe(el));
+        });
+    </script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('show');
+                    } else {
+                        entry.target.classList.remove('show');
+                    }
+                });
+            });
+
+            const hiddenElements = document.querySelectorAll('.pep, .after1, .after2, .after3, .after4, .after5, .after6');
+            hiddenElements.forEach((el) => observer.observe(el));
+        });
+        function scrollToSection(sectionId) {
+            document.getElementById(sectionId).scrollIntoView({ behavior: 'smooth' });
+            // إزالة الهاش من الـ URL إذا تم إضافته
+            history.pushState("", document.title, window.location.pathname + window.location.search);
+        }
+
+        window.onload = function () {
+            window.scrollTo(0, 0);
+        };
+        if ('scrollRestoration' in history) {
+            history.scrollRestoration = 'manual';
+        }
+        window.onload = function () {
+            window.scrollTo(0, 0);
+        };
+
+
+
+
+    </script>
+
+
 </head>
 
 <body>
-    <div class="content-wrapper">
-        <div class="section-boxes">
-            <div class="section-box" onclick="showButtons('office-jobs')">قطاع الوظائف المكتبية</div>
-            <div class="section-box" onclick="showButtons('tech-jobs')">قطاع التقنية والخدمة</div>
+    <div class="pep4" id="head">
+        <img src="img/head.png" alt="head">
+        <div> التكيف مع التكنولوجيا
+            <br>
+
+            تحديات فرص سوق العمل
+        </div>
+    </div>
+    <div class="pep1" id="after">
+        <div class="after1">
+            <button onclick="scrollToSection('chan')">
+                <p>تحديات يفرضها الذكاء الاصطناعي</p>
+            </button>
+        </div>
+        <div class="after2">
+            <button onclick="scrollToSection('what')">
+                <p>ماذا يكون الذكاء الاصطناعي؟</p>
+            </button>
+        </div>
+        <div class="after3">
+            <button onclick="scrollToSection('intro')">
+                <p>مقدمة حول التحولات التكنولوجية</p>
+            </button>
+        </div>
+        <div class="after4">
+            <button onclick="scrollToSection('end')">
+                <p>فرص جديدة في سوق العمل</p>
+            </button>
+        </div>
+        <div class="after5">
+            <button onclick="scrollToSection('chanp')">
+                <p>دور الحكومات والمؤسسات التعليمية</p>
+            </button>
+        </div>
+        <div class="after6">
+            <button onclick="scrollToSection('skills')">
+                <p>أهمية تطوير المهارات</p>
+            </button>
+        </div>
+    </div>
+    <div class="pep" id="intro">
+        <img src="/Users/youseffouad1icloud.com/Documents/sa7/img/intro.jpeg" alt="intro">
+        <div>مقدمة حول التحولات التكنولوجية</div>
+        <hr>
+        <p class="introp">التكنولوجيا الحديثة أحدثت انقلابًا جذريًا في حياتنا، خاصة في سوق العمل. التطورات في مجالات مثل
+            الذكاء الاصطناعي والتحول
+            الرقمي ليست مجرد تحسينات سطحية، بل تحولات عميقة تعيد تشكيل كل شيء من كيفية أداء الأعمال إلى نوعية الوظائف
+            المتاحة. لم
+            تعد الوظائف التقليدية في أمان؛ التكنولوجيا تعيد توزيع الأدوار والمهام، مما يؤدي إلى زوال بعض الوظائف وظهور
+            أخرى لم تكن
+            موجودة قبل سنوات قليلة فقط. نحن أمام مستقبل تتحكم فيه الآلات والتطبيقات الذكية، ما يتطلب من الجميع إعادة
+            التفكير في
+            المهارات والكفاءات اللازمة للبقاء في هذا العالم المتسارع. </p>
+    </div>
+    <div class="container mt-5" id="containermt-5">
+        <h1 class="text-center mb-5" style="color: #eee;">القطاعات التي تاثرت بالذكاء الاصطناعي</h1>
+        <h2 style="color: #eee; padding-bottom: 40px ; align-items: center;">تأثير الذكاء الاصطناعي على القطاعات
+            المختلفة والمهارات المطلوبة لمواكبة التطور</h2>
+
+        <!-- القطاعات المختلفة -->
+        <div id="ticker-container" class="d-flex overflow-hidden">
+            <div id="sectors" class="d-flex">
+                <div class="sector" data-sector="health">
+                    <div class="card animate__animated">
+                        <div class="card-body" id="ppi">
+                            <div class="kol"><img src="img/zra3a.png"
+                                    alt="111" id="nio">
+                            </div>
+                            <h3>الصحة</h3>
+                            <!-- <p>اكتشف كيف يغير الذكاء الاصطناعي قطاع الصحة</p> -->
+                        </div>
+                    </div>
+                </div>
+                <div class="sector" data-sector="industry">
+                    <div class="card animate__animated">
+                        <div class="card-body" id="ppi">
+                            <div class="kol"><img src="img/zra3a.png"
+                                    alt="111" id="nio">
+                            </div>
+                            <h3>الصناعة</h3>
+                            <!-- <p>تعرف على دور الذكاء الاصطناعي في الصناعة</p> -->
+                        </div>
+                    </div>
+                </div>
+                <div class="sector" data-sector="education">
+                    <div class="card animate__animated">
+                        <div class="card-body" id="ppi">
+                            <div class="kol"><img src="img/zra3a.png"
+                                    alt="111" id="nio">
+                            </div>
+                            <h3>التعليم</h3>
+                            <!-- <p>كيف يحسن الذكاء الاصطناعي العملية التعليمية؟</p> -->
+                        </div>
+                    </div>
+                </div>
+                <div class="sector" data-sector="commerce">
+                    <div class="card animate__animated">
+                        <div class="card-body" id="ppi">
+                            <div class="kol"><img src="img/zra3a.png"
+                                    alt="111" id="nio">
+                            </div>
+                            <h3>التجارة</h3>
+                            <!-- <p>التجارة الرقمية والذكاء الاصطناعي</p> -->
+                        </div>
+                    </div>
+                </div>
+                <div class="sector" data-sector="military">
+                    <div class="card animate__animated">
+                        <div class="card-body" id="ppi">
+                            <div class="kol"><img src="img/zra3a.png"
+                                    alt="111" id="nio">
+                            </div>
+                            <h3>الجيش</h3>
+                            <!-- <p>دور الذكاء الاصطناعي في تعزيز القدرات العسكرية</p> -->
+                        </div>
+                    </div>
+                </div>
+                <div class="sector" data-sector="media">
+                    <div class="card animate__animated">
+                        <div class="card-body" id="ppi">
+                            <div class="kol"><img src="img/zra3a.png"
+                                    alt="111" id="nio">
+                            </div>
+                            <h3>الإعلام</h3>
+                            <!-- <p>الذكاء الاصطناعي ومستقبل الإعلام</p> -->
+                        </div>
+                    </div>
+                </div>
+                <div class="sector" data-sector="sports">
+                    <div class="card animate__animated">
+                        <div class="card-body" id="ppi">
+                            <div class="kol"><img src="img/zra3a.png"
+                                    alt="111" id="nio">
+                            </div>
+                            <h3>الرياضة</h3>
+
+                            <!-- <p>كيف يساهم الذكاء الاصطناعي في تحسين الأداء الرياضي؟</p> -->
+                        </div>
+                    </div>
+                </div>
+                <div class="sector" data-sector="agriculture">
+                    <div class="card animate__animated">
+                        <div class="card-body" id="ppi">
+                            <div class="kol"><img src="img/zra3a.png"
+                                    alt="111" id="nio">
+                            </div>
+                            <h3>الزراعة</h3>
+                            <!-- <p>التكنولوجيا الذكية في تحسين العمليات الزراعية</p> -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="displayText" class="d-none">
+            <div class="card">
+                <div class="card-body">
+                    <p id="articleText"></p>
+                </div>
+            </div>
         </div>
 
-        <div class="section-container">
-            <div class="left-buttons" id="left-buttons"></div>
-            <div class="right-buttons" id="right-buttons"></div>
-            <div class="bottom-buttons" id="bottom-buttons"></div>
 
-            <div class="fixed-progress-container">
-                <div class="label-text"></div>
-                <svg viewBox="0 0 100 100">
-                    <circle cx="50" cy="50" r="40" class="circle-background" />
-                    <circle cx="50" cy="50" r="40" class="circle-progress" id="circle-progress" />
-                    <text x="50" y="55" id="percentage-text" class="percentage-text">0%</text>
-                </svg>
+        <div id="displayText" class="d-none">
+            <div class="card">
+                <div class="card-body">
+                    <p id="articleText"></p>
+                </div>
+            </div>
+        </div>
 
-                <div class="reason-text" id="reason-text">
-                    <div>مرر الماوس فوق الوظيفة لمعرفة السبب</div>
+        <!-- منطقة لعرض النص عند تحريك الماوس -->
+        <div id="displayText" class="text-center mt-5 d-none" class="aas">
+            <div class="card animate__animated">
+                <div class="card-body">
+                    <p id="articleText" class="mb-0"></p>
                 </div>
             </div>
         </div>
     </div>
+    <div class="pep" id="what">
 
-    <script>
-        const jobsData = {
-            "office-jobs": [
-                { title: "مدخل بيانات", percentage: 90, reason: ["تحليل البيانات مؤتمت.", "تطبيق الأتمتة.", "تخفيض التكاليف."] },
-                { title: "مندوب تسويق عبر الهاتف", percentage: 85, reason: ["الاتصالات مؤتمتة.", "استخدام الروبوتات.", "تقليل عدد الموظفين."] },
-                { title: "أمين صندوق", percentage: 80, reason: ["دفع ذاتي يقلل الحاجة.", "تطبيق الذكاء الاصطناعي.", "زيادة كفاءة المعاملات."] },
-                { title: "محاسب", percentage: 70, reason: ["تطوير البرامج المحاسبية.", "تسريع العمليات المحاسبية.", "تقليل الحاجة للمراجعة اليدوية."] },
-                { title: "عامل خط تجميع", percentage: 75, reason: ["التصنيع مؤتمت.", "استخدام الروبوتات.", "تقليل الحاجة إلى العمالة اليدوية."] },
-                { title: "موظف استقبال", percentage: 80, reason: ["تسجيل ذاتي متقدم.", "تقنيات الخدمة الذاتية.", "تقليل أعداد موظفي الاستقبال."] },
-                { title: "موظف خدمة عملاء", percentage: 75, reason: ["التفاعل الآلي.", "تطبيق الشات بوت.", "تقليل الاحتياج لموظفي الخدمة."] },
-                { title: "مدقق لغوي", percentage: 80, reason: ["التدقيق الآلي.", "التدقيق في المستندات.", "التدقيق السريع بدقة عالية."] },
-                { title: "وكيل سفر", percentage: 80, reason: ["التطبيقات المتقدمة.", "تحسين عمليات الحجز.", "التقليل من الحاجة لوسطاء."] },
-                { title: "موظف بنك", percentage: 85, reason: ["الخدمات البنكية الذاتية.", "التطبيقات البنكية.", "تقليل الحاجة للموظفين."] },
-                { title: "مكتتب تأمين", percentage: 85, reason: ["تقييم المخاطر الآلي.", "التأمين الذكي.", "تحليل البيانات التأمينية."] },
-                { title: "أخصائي أشعة", percentage: 60, reason: ["تشخيص الصور آلياً.", "دعم التحليل الآلي.", "التقليل من عدد الأطباء."] }
-            ],
-            "tech-jobs": [
-                { title: "مهندس تعلم الآلة", percentage: 60, reason: ["تحليل الأنظمة بتعلم الآلة.", "تطوير خوارزميات.", "الاعتماد على الذكاء الاصطناعي."] },
-                { title: "محلل بيانات", percentage: 45, reason: ["زيادة الاعتماد على البيانات.", "تحليل البيانات الكبيرة.", "دعم اتخاذ القرار."] },
-                { title: "عالم بيانات", percentage: 50, reason: ["تطوير الخوارزميات.", "تحليل متقدم للبيانات.", "زيادة البيانات المعقدة."] },
-                { title: "مهندس روبوتات", percentage: 40, reason: ["زيادة الأتمتة.", "التصنيع باستخدام الروبوتات.", "تقليل تكاليف اليد العاملة."] },
-                { title: "خبير الأمن السيبراني", percentage: 55, reason: ["تزايد الهجمات السيبرانية.", "حماية البيانات الحساسة.", "تطوير استراتيجيات الأمان."] },
-                { title: "مهندس برمجيات", percentage: 35, reason: ["التطوير المستمر.", "زيادة التطبيقات.", "حاجة مستمرة للتحديث."] },
-                { title: "مدير منتجات تقنية", percentage: 40, reason: ["التطوير السريع.", "تنظيم المشاريع.", "تحقيق التوافق مع التقنية."] },
-                { title: "مطوّر تطبيقات", percentage: 30, reason: ["الطلب المتزايد.", "تزايد الهواتف الذكية.", "تقديم حلول ذكية."] },
-                { title: "محلل ذكاء الأعمال", percentage: 50, reason: ["تحليل استراتيجي.", "دعم القرار.", "زيادة البيانات التنافسية."] },
-                { title: "خبير تجربة المستخدم (UX/UI)", percentage: 45, reason: ["تحسين الواجهة.", "جذب المستخدمين.", "تلبية توقعات المستخدمين."] },
-                { title: "مختص تسويق رقمي", percentage: 55, reason: ["التسويق الرقمي.", "زيادة التجارة الإلكترونية.", "تحسين الوصول."] },
-                { title: "أخصائي أخلاقيات التقنية", percentage: 40, reason: ["ضبط استخدام التقنية.", "تطوير السياسات الأخلاقية.", "توجيه الاستخدام المسؤول."] }
-            ]
-        };
+        <img src="img/what.png" alt="intro">
+        <div>ما هو الذكاء الاصطناعي؟</div>
+        <hr>
+        <p class="whatp">الذكاء الاصطناعي يمثل الثورة الرقمية الكبرى في عصرنا. هو نظام تكنولوجي يمنح الآلات القدرة على
+            التعلم من البيانات،
+            التفكير المنطقي، والتصرف بطرق تُحاكي الذكاء البشري. الذكاء الاصطناعي لم يعد مجرد خيال علمي؛ اليوم، هو في قلب
+            صناعات مثل
+            الطب، المال، التصنيع، وحتى الترفيه. من السيارات ذاتية القيادة إلى التشخيص الطبي المعتمد على تحليل البيانات
+            الضخمة،
+            الذكاء الاصطناعي أصبح جزءًا لا يتجزأ من بنيتنا التحتية الحديثة. </p>
+    </div>
+    <div class="pep" id="chan">
+        <img src="img/chan.png" alt="intro">
+        <div>التحديات التي يفرضها الذكاء الاصطناعي</div>
+        <hr>
+        <p class="chan1">التحديات التي يفرضها الذكاء الاصطناعي
+            رغم الوعود الكبيرة التي يحملها الذكاء الاصطناعي، فإنه يأتي مع تحديات هائلة.
+            الأتمتة قد تؤدي إلى فقدان ملايين الوظائف الروتينية، ما يثير مخاوف كبيرة حول البطالة في المستقبل القريب.
+            أيضًا، الاعتماد
+            الكبير على الذكاء الاصطناعي يثير قضايا تتعلق بالخصوصية، حيث تعتمد الأنظمة الذكية على كم هائل من البيانات
+            الشخصية لتحسين
+            أدائها. من ناحية أخرى، هناك مخاوف من تقليل الحاجة للتدخل البشري في اتخاذ القرارات الهامة، ما يفتح الباب
+            للتساؤل حول مدى
+            السيطرة التي نحتفظ بها على هذه التقنيات.</p>
+    </div>
+    <div class="pep" id="end">
+        <img src="img/end.png " alt="intro">
+        <div>فرص جديدة في سوق العمل</div>
+        <hr>
+        <p class="chan1">بالرغم من التحديات، الذكاء الاصطناعي يخلق فرصًا جديدة ويعيد تشكيل مفاهيم العمل بطرق غير مسبوقة.
+            هناك
+            طلب متزايد على
+            المهارات التي تتعامل مع تحليل البيانات، تطوير الخوارزميات، والتفاعل مع الأنظمة الذكية. الوظائف الجديدة ليست
+            فقط في
+            مجالات البرمجة والتكنولوجيا، بل تمتد إلى قطاعات مثل الرعاية الصحية، التعليم، وحتى الفنون، حيث تُمكن الأدوات
+            الذكية
+            الأفراد من ابتكار حلول أكثر إبداعًا وفعالية. من يستثمر في تطوير مهاراته اليوم سيكون له مكان في هذا السوق
+            الجديد.</p>
+    </div>
+<div class="content-wrapper">
+<div class="lop">
+    <h1>قطاعات الأعمال</h1> <!-- العنوان الرئيسي هنا -->
+</div>
+<div class="section-boxes">
 
-        function showButtons(section) {
-            const rightButtons = document.getElementById('right-buttons');
-            const leftButtons = document.getElementById('left-buttons');
-            const bottomButtons = document.getElementById('bottom-buttons');
+    <div class="section-box" onclick="showButtons('office-jobs')">قطاع الوظائف المكتبية</div>
+    <div class="section-box" onclick="showButtons('tech-jobs')">قطاع التقنية والخدمة</div>
+</div>
 
-            rightButtons.innerHTML = '';
-            leftButtons.innerHTML = '';
-            bottomButtons.innerHTML = '';
+<div class="section-container">
+    <div class="left-buttons" id="left-buttons"></div>
+    <div class="right-buttons" id="right-buttons"></div>
+    <div class="bottom-buttons" id="bottom-buttons"></div>
 
-            const labelTextElement = document.querySelector('.label-text');
-            if (section === 'office-jobs') {
-                labelTextElement.textContent = 'نسبة الزيادة المتوقعة في الوظائف المكتبية';
-            } else if (section === 'tech-jobs') {
-                labelTextElement.textContent = 'نسبة الزيادة المتوقعة في قطاع التقنية والخدمة';
-            }
+    <div class="fixed-progress-container">
+        <div class="label-text"></div>
+        <svg viewBox="0 0 100 100">
+            <circle cx="50" cy="50" r="40" class="circle-background" />
+            <circle cx="50" cy="50" r="40" class="circle-progress" id="circle-progress" />
+            <text x="50" y="55" id="percentage-text" class="percentage-text">0%</text>
+        </svg>
 
-            const buttons = jobsData[section].map((job, index) => {
-                const button = document.createElement('div');
-                button.classList.add('button');
-                button.textContent = job.title;
+        <div class="reason-text" id="reason-text">
+            <div>مرر الماوس فوق الوظيفة لمعرفة السبب</div>
+        </div>
+    </div>
+</div>
+</div>
+            <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+            <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+            <script src="scripts.js"></script>
+            <script>
+                $(document).ready(function () {
+                    const sectors = $('#sectors');
+                    const sectorsContent = sectors.html(); // احصل على المحتوى الأصلي
+                    sectors.append(sectorsContent); // ضاعف المحتوى لإعطاء تأثير التكرار
 
-                button.addEventListener('mouseover', () => {
-                    animateProgress(job.percentage);
-                    document.getElementById('reason-text').innerHTML = job.reason.map(r => `<div>${r}</div>`).join("");
+       const articles = {
+                        health: "<p>أحدث الذكاء الاصطناعي ثورة في قطاع الصحة من خلال تطوير تقنيات تشخيصية وعلاجية مبتكرة. ساعدت الأنظمة الذكية في تحليل الصور الطبية مثل الأشعة السينية والرنين المغناطيسي بدقة تفوق القدرات البشرية، مما أدى إلى اكتشاف الأمراض في مراحلها المبكرة. أسهمت خوارزميات التعلم العميق في تحليل البيانات الجينية وتحديد العلاجات المستهدفة للأمراض المستعصية. قدمت الروبوتات الجراحية المدعومة بالذكاء الاصطناعي إمكانية إجراء عمليات جراحية معقدة بدقة عالية وتقليل مخاطر الأخطاء الطبية.</p><p>يتطلب مواكبة التطور في هذا القطاع اكتساب مهارات في تحليل البيانات الضخمة والتعلم الآلي. يحتاج الأطباء والممرضون إلى فهم كيفية استخدام التقنيات الحديثة في التشخيص والعلاج وتحديث معارفهم باستمرار. يجب على المتخصصين في الرعاية الصحية تعلم برمجة الأنظمة الذكية والتعامل مع الأجهزة الطبية المتقدمة. يتطلب التطور أيضًا التركيز على أخلاقيات استخدام الذكاء الاصطناعي لضمان حماية خصوصية المرضى وسلامتهم.</p>",
+
+                        industry: "<p>ساهم الذكاء الاصطناعي في تحويل الصناعة عبر الأتمتة والرقمنة. أدخلت الروبوتات الذكية في خطوط الإنتاج لتحسين الكفاءة وتقليل الأخطاء البشرية. ساعدت الأنظمة التنبؤية في صيانة المعدات قبل حدوث الأعطال، مما قلل من فترات التوقف وزاد من الإنتاجية. أتاح تحليل البيانات الضخمة تحسين سلاسل التوريد وإدارة المخزون بفعالية أكبر، مما أدى إلى تقليل التكاليف وزيادة الأرباح.</p><p>يتطلب التطور في هذا المجال اكتساب مهارات في هندسة البرمجيات وعلوم البيانات. يحتاج المهندسون والفنيون إلى فهم كيفية تصميم وتشغيل الروبوتات وأنظمة الأتمتة الذكية. يجب تطوير القدرات في مجال الأمن السيبراني لحماية الأنظمة الصناعية من الهجمات الإلكترونية. يتطلب مواكبة التطور التركيز على الابتكار والتعلم المستمر للتقنيات الحديثة وتطبيقها بفعالية في العمليات الصناعية.</p>",
+
+                        education: "<p>غير الذكاء الاصطناعي ملامح قطاع التعليم من خلال تقديم تجارب تعليمية مخصصة وتفاعلية. ساعدت المنصات التعليمية الذكية في تحليل أداء الطلاب وتقديم محتوى يتناسب مع قدراتهم واحتياجاتهم الفردية. قدمت تقنيات التعلم الآلي أدوات تقييم متقدمة تساعد المعلمين على تحديد نقاط القوة والضعف لدى الطلاب. أتاح الواقع الافتراضي والواقع المعزز تجارب تعليمية غامرة تعزز من فهم المفاهيم المعقدة.</p><p>يتطلب التطور في قطاع التعليم تطوير مهارات في تكنولوجيا التعليم وتصميم المناهج الرقمية. يحتاج المعلمون إلى فهم كيفية دمج الذكاء الاصطناعي في العملية التعليمية لتحسين جودة التعلم. يجب تعلم استخدام الأدوات التعليمية الحديثة والتفاعل مع الطلاب عبر المنصات الرقمية. يتطلب التطور التركيز على التعلم المستمر ومواكبة أحدث الاتجاهات في مجال التعليم والتكنولوجيا.</p>",
+
+                        commerce: "<p>أعاد الذكاء الاصطناعي تشكيل قطاع التجارة من خلال تحسين تجربة العملاء وتخصيص الخدمات. ساعدت التحليلات المتقدمة في فهم سلوك المستهلكين وتوقع احتياجاتهم، مما أدى إلى تقديم توصيات منتجات مخصصة وزيادة المبيعات. ساهمت روبوتات الدردشة الذكية في تقديم خدمة عملاء فورية وفعالة على مدار الساعة. أتاح تحليل البيانات تحسين إدارة المخزون والتسعير الديناميكي، مما عزز من القدرة التنافسية للشركات.</p><p>يحتاج العاملون في التجارة إلى مهارات في التسويق الرقمي وتحليل البيانات الضخمة. يجب فهم كيفية استخدام أدوات الذكاء الاصطناعي لتحسين استراتيجيات التسويق وزيادة فعالية الحملات الإعلانية. يتطلب التطور في هذا القطاع التعلم المستمر لتقنيات التعلم الآلي والتنبؤ بالسوق. يجب التركيز على تجربة العملاء وتطوير الحلول المبتكرة التي تلبي احتياجاتهم بفعالية.</p>",
+
+                        military: "<p>عزز الذكاء الاصطناعي القدرات العسكرية من خلال تطوير أنظمة دفاعية وهجومية متقدمة. ساعدت التقنيات الذكية في تحسين جمع المعلومات الاستخباراتية وتحليلها بسرعة ودقة، مما أدى إلى اتخاذ قرارات استراتيجية أكثر فعالية. قدمت الأنظمة الذاتية مثل الطائرات بدون طيار والمركبات غير المأهولة إمكانيات جديدة في المراقبة والاستطلاع والهجمات الدقيقة. أسهمت خوارزميات التعلم الآلي في تحسين أمن الشبكات واكتشاف التهديدات السيبرانية.</p><p>يتطلب التطور في القطاع العسكري اكتساب مهارات في التكنولوجيا المتقدمة والأمن السيبراني. يحتاج الأفراد إلى فهم تطبيقات الذكاء الاصطناعي في المجالات العسكرية وكيفية استخدامها لتعزيز القدرات الدفاعية والهجومية. يجب تطوير القدرات في مجال تحليل البيانات وتطوير الخوارزميات. يتطلب التطور التركيز على التدريب المستمر ومواكبة أحدث التقنيات لضمان التفوق العسكري.</p>",
+
+                        media: "<p>غير الذكاء الاصطناعي طريقة إنتاج وتوزيع المحتوى الإعلامي عبر التحليلات الذكية والتخصيص. ساعدت الخوارزميات في تقديم محتوى يناسب اهتمامات الجمهور وزيادة التفاعل والمشاركة. أتاح الذكاء الاصطناعي إنشاء محتوى آلي مثل المقالات والتقارير الإخبارية. ساهمت تقنيات التعرف على الصوت والصورة في تحسين عمليات البحث والأرشفة وتسهيل الوصول إلى المعلومات.</p><p>يحتاج العاملون في الإعلام إلى مهارات في تحليل البيانات واستخدام الأدوات الرقمية المتقدمة. يجب فهم كيفية تطبيق تقنيات الذكاء الاصطناعي في إنشاء وتوزيع المحتوى بطرق مبتكرة. يتطلب التطور في هذا المجال التعلم المستمر للتقنيات الحديثة والتكيف مع التغييرات السريعة في صناعة الإعلام. يجب التركيز على تقديم محتوى ذو جودة عالية يلبي احتياجات الجمهور المتنوعة.</p>",
+
+                        sports: "<p>أدخل الذكاء الاصطناعي تحسينات كبيرة على قطاع الرياضة من خلال تحليل أداء اللاعبين وتطوير الاستراتيجيات. ساعدت البيانات الضخمة في تحديد نقاط القوة والضعف وتخصيص برامج تدريبية فعالة. أتاح تحليل الفيديوهات والأحداث الرياضية تحسين الخطط التكتيكية وتوقع تحركات الخصوم. ساهمت التقنيات الذكية في تحسين تجربة المشجعين عبر الواقع الافتراضي والتطبيقات التفاعلية.</p><p>يتطلب التطور في الرياضة مهارات في تحليل البيانات والتكنولوجيا الرياضية. يحتاج المدربون واللاعبون إلى فهم كيفية استخدام الذكاء الاصطناعي لتحسين الأداء وتحقيق نتائج أفضل في المنافسات. يجب تطوير القدرات في مجال استخدام الأجهزة القابلة للارتداء وتطبيقات تتبع الأداء. يتطلب التطور التركيز على الابتكار والتعلم المستمر للتقنيات الحديثة في المجال الرياضي.</p>",
+
+                        agriculture: "<p>ساهم الذكاء الاصطناعي في زيادة الإنتاجية والاستدامة في القطاع الزراعي عبر التقنيات الذكية. أدت أنظمة الاستشعار والتحليلات إلى تحسين إدارة الموارد مثل المياه والأسمدة وتوقع الظروف المناخية، مما ساعد في زيادة المحاصيل. ساعدت الروبوتات الزراعية في تنفيذ المهام الشاقة مثل الزراعة والحصاد بكفاءة عالية. أتاح تحليل البيانات تحسين إدارة سلاسل التوريد وتقليل الفاقد.</p><p>يحتاج العاملون في الزراعة إلى مهارات في التكنولوجيا الزراعية وتحليل البيانات. يجب فهم كيفية استخدام أدوات الذكاء الاصطناعي لتحسين العمليات الزراعية وتحقيق إنتاجية أعلى بموارد أقل. يتطلب التطور في هذا القطاع التعلم المستمر للتقنيات الحديثة والتكيف مع التغيرات البيئية والمناخية. يجب التركيز على الاستدامة وتطبيق الممارسات الزراعية الذكية لضمان الأمن الغذائي.</p>"
+                    };
+
+
+
+                    let animationRunning = true; // متغير للتحكم في الحركة
+
+                    function startAnimation() {
+                        $('#sectors').css('animationPlayState', 'running');
+                        animationRunning = true;
+                    }
+
+                    function stopAnimation() {
+                        $('#sectors').css('animationPlayState', 'paused');
+                        animationRunning = false;
+                    }
+
+                    // تأثير hover
+                    $('.sector').hover(
+                        function () {
+                            let sector = $(this).data('sector');
+                            let article = articles[sector] || "لا توجد معلومات متاحة لهذا القطاع.";
+
+                            // إظهار المقال في منطقة العرض
+                            $('#displayText').removeClass('d-none');
+                            $('#articleText').html(article);
+                            $('#displayText .card').addClass('animate__fadeIn');
+
+                            // إيقاف الحركة
+                            stopAnimation();
+                        },
+                        function () {
+                            // إخفاء المقال عند تحريك الماوس بعيدًا
+                            $('#displayText').addClass('d-none');
+                            $('#displayText .card').removeClass('animate__fadeIn');
+
+                            // استئناف الحركة
+                            if (!animationRunning) {
+                                startAnimation();
+                            }
+                        }
+                    );
                 });
+                const jobsData = {
+                    "tech-jobs": [
+                            { title: "مدخل بيانات", percentage: 90, reason: ["تحليل البيانات مؤتمت.", "تطبيق الأتمتة.", "تخفيض التكاليف."] },
+                            { title: "مندوب تسويق عبر الهاتف", percentage: 85, reason: ["الاتصالات مؤتمتة.", "استخدام الروبوتات.", "تقليل عدد الموظفين."] },
+                            { title: "أمين صندوق", percentage: 80, reason: ["دفع ذاتي يقلل الحاجة.", "تطبيق الذكاء الاصطناعي.", "زيادة كفاءة المعاملات."] },
+                            { title: "محاسب", percentage: 70, reason: ["تطوير البرامج المحاسبية.", "تسريع العمليات المحاسبية.", "تقليل الحاجة للمراجعة اليدوية."] },
+                            { title: "عامل خط تجميع", percentage: 75, reason: ["التصنيع مؤتمت.", "استخدام الروبوتات.", "تقليل الحاجة إلى العمالة اليدوية."] },
+                            { title: "موظف استقبال", percentage: 80, reason: ["تسجيل ذاتي متقدم.", "تقنيات الخدمة الذاتية.", "تقليل أعداد موظفي الاستقبال."] },
+                            { title: "موظف خدمة عملاء", percentage: 75, reason: ["التفاعل الآلي.", "تطبيق الشات بوت.", "تقليل الاحتياج لموظفي الخدمة."] },
+                            { title: "مدقق لغوي", percentage: 80, reason: ["التدقيق الآلي.", "التدقيق في المستندات.", "التدقيق السريع بدقة عالية."] },
+                            { title: "وكيل سفر", percentage: 80, reason: ["التطبيقات المتقدمة.", "تحسين عمليات الحجز.", "التقليل من الحاجة لوسطاء."] },
+                            { title: "موظف بنك", percentage: 85, reason: ["الخدمات البنكية الذاتية.", "التطبيقات البنكية.", "تقليل الحاجة للموظفين."] },
+                            { title: "مكتتب تأمين", percentage: 85, reason: ["تقييم المخاطر الآلي.", "التأمين الذكي.", "تحليل البيانات التأمينية."] },
+                            { title: "أخصائي أشعة", percentage: 60, reason: ["تشخيص الصور آلياً.", "دعم التحليل الآلي.", "التقليل من عدد الأطباء."] }
+                        ],
+                    "office-jobs": [
 
-                button.addEventListener('mouseout', resetProgress);
-                return button;
-            });
+                            { title: "مهندس تعلم الآلة", percentage: 60, reason: ["تحليل الأنظمة بتعلم الآلة.", "تطوير خوارزميات.", "الاعتماد على الذكاء الاصطناعي."] },
+                            { title: "محلل بيانات", percentage: 45, reason: ["زيادة الاعتماد على البيانات.", "تحليل البيانات الكبيرة.", "دعم اتخاذ القرار."] },
+                            { title: "عالم بيانات", percentage: 50, reason: ["تطوير الخوارزميات.", "تحليل متقدم للبيانات.", "زيادة البيانات المعقدة."] },
+                            { title: "مهندس روبوتات", percentage: 40, reason: ["زيادة الأتمتة.", "التصنيع باستخدام الروبوتات.", "تقليل تكاليف اليد العاملة."] },
+                            { title: "خبير الأمن السيبراني", percentage: 55, reason: ["تزايد الهجمات السيبرانية.", "حماية البيانات الحساسة.", "تطوير استراتيجيات الأمان."] },
+                            { title: "مهندس برمجيات", percentage: 35, reason: ["التطوير المستمر.", "زيادة التطبيقات.", "حاجة مستمرة للتحديث."] },
+                            { title: "مدير منتجات تقنية", percentage: 40, reason: ["التطوير السريع.", "تنظيم المشاريع.", "تحقيق التوافق مع التقنية."] },
+                            { title: "مطوّر تطبيقات", percentage: 30, reason: ["الطلب المتزايد.", "تزايد الهواتف الذكية.", "تقديم حلول ذكية."] },
+                            { title: "محلل ذكاء الأعمال", percentage: 50, reason: ["تحليل استراتيجي.", "دعم القرار.", "زيادة البيانات التنافسية."] },
+                            { title: "خبير تجربة المستخدم (UX/UI)", percentage: 45, reason: ["تحسين الواجهة.", "جذب المستخدمين.", "تلبية توقعات المستخدمين."] },
+                            { title: "مختص تسويق رقمي", percentage: 55, reason: ["التسويق الرقمي.", "زيادة التجارة الإلكترونية.", "تحسين الوصول."] },
+                            { title: "أخصائي أخلاقيات التقنية", percentage: 40, reason: ["ضبط استخدام التقنية.", "تطوير السياسات الأخلاقية.", "توجيه الاستخدام المسؤول."] }
+                        ]
+                    };
 
-            leftButtons.append(...buttons.slice(0, 4));
-            rightButtons.append(...buttons.slice(4, 8));
-            bottomButtons.append(...buttons.slice(8, 12));
-        }
+                    function showButtons(section) {
+                        const rightButtons = document.getElementById('right-buttons');
+                        const leftButtons = document.getElementById('left-buttons');
+                        const bottomButtons = document.getElementById('bottom-buttons');
 
-        function animateProgress(targetPercentage) {
-            const circle = document.getElementById('circle-progress');
-            const textElement = document.getElementById('percentage-text');
-            const radius = circle.r.baseVal.value;
-            const circumference = 2 * Math.PI * radius;
+                        rightButtons.innerHTML = '';
+                        leftButtons.innerHTML = '';
+                        bottomButtons.innerHTML = '';
 
-            circle.style.strokeDasharray = `${circumference}`;
-            const targetOffset = circumference - (targetPercentage / 100) * circumference;
+                        const labelTextElement = document.querySelector('.label-text');
+                        if (section === 'office-jobs') {
+                            labelTextElement.textContent = 'نسبة الزيادة المتوقعة في الوظائف المكتبية';
+                        } else if (section === 'tech-jobs') {
+                            labelTextElement.textContent = 'نسبة الزيادة المتوقعة في قطاع التقنية والخدمة';
+                        }
 
-            circle.style.strokeDashoffset = targetOffset;
-            textElement.textContent = `${targetPercentage}%`;
-        }
+                        const buttons = jobsData[section].map((job, index) => {
+                            const button = document.createElement('div');
+                            button.classList.add('button');
+                            button.textContent = job.title;
 
-        function resetProgress() {
-            const circle = document.getElementById('circle-progress');
-            const textElement = document.getElementById('percentage-text');
-            const radius = circle.r.baseVal.value;
-            const circumference = 2 * Math.PI * radius;
+                            button.addEventListener('mouseover', () => {
+                                animateProgress(job.percentage);
+                                document.getElementById('reason-text').innerHTML = job.reason.map(r => `<div>${r}</div>`).join("");
+                            });
 
-            circle.style.strokeDashoffset = circumference;
-            textElement.textContent = '0%';
-            document.getElementById('reason-text').innerHTML = '<div>مرر الماوس فوق الوظيفة لمعرفة السبب</div>';
-        }
-    </script>
+                            button.addEventListener('mouseout', resetProgress);
+                            return button;
+                        });
+
+                        leftButtons.append(...buttons.slice(0, 4));
+                        rightButtons.append(...buttons.slice(4, 8));
+                        bottomButtons.append(...buttons.slice(8, 12));
+                    }
+
+                    function animateProgress(targetPercentage) {
+                        const circle = document.getElementById('circle-progress');
+                        const textElement = document.getElementById('percentage-text');
+                        const radius = circle.r.baseVal.value;
+                        const circumference = 2 * Math.PI * radius;
+
+                        circle.style.strokeDasharray = `${circumference}`;
+                        const targetOffset = circumference - (targetPercentage / 100) * circumference;
+
+                        circle.style.strokeDashoffset = targetOffset;
+                        textElement.textContent = `${targetPercentage}%`;
+                    }
+
+                    function resetProgress() {
+                        const circle = document.getElementById('circle-progress');
+                        const textElement = document.getElementById('percentage-text');
+                        const radius = circle.r.baseVal.value;
+                        const circumference = 2 * Math.PI * radius;
+
+                        circle.style.strokeDashoffset = circumference;
+                        textElement.textContent = '0%';
+                        document.getElementById('reason-text').innerHTML = '<div>مرر الماوس فوق الوظيفة لمعرفة السبب</div>';
+                    }
+
+
+
+            </script>
+            
+
 </body>
 
 </html>
