@@ -1032,6 +1032,281 @@ Here's the code with all comments removed:
                 font-size: 12px;
             }
         }
+        html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: black;
+    padding: 0;
+    margin: 0;
+    font-family: 'Poppins';
+    width: 100%;
+}
+
+/* Main section styling */
+#head {
+    width: 100%;
+    height: 100vh;
+    background-color: beige;
+    position: relative;
+}
+
+#head div {
+    width: 60%;
+    height: 12rem;
+    color: #FFF;
+    text-align: center;
+    font-size: 4rem;
+    font-weight: 800;
+    position: absolute;
+    top: 35vh;
+    right: 20%;
+}
+
+#head img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+#after {
+    display: flex;
+    width: calc(100% - 12.5rem); 
+    justify-content: flex-end;
+    gap: 4.6875rem;
+    flex-wrap: wrap;
+    color: #FFF;
+    background-color: transparent;
+    margin: 6.25rem auto 0 auto;
+    padding: 0 6.25rem;
+}
+
+#after div {
+    display: flex;
+    min-width: 17.5rem;
+    padding: 1rem 1rem 3.75rem;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 1rem;
+    flex: 1 0 0;
+    border-radius: 0.5rem;
+    border: 1px solid var(--gray-300, #D1D5DB);
+    position: relative;
+}
+
+#after p {
+    align-self: stretch;
+    color: #FFF;
+    font-family: Poppins;
+    font-size: 1.25rem;
+    font-weight: 600;
+    line-height: normal;
+    text-transform: capitalize;
+    margin-right: 0.625rem;
+    margin: auto;
+}
+
+#intro {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    color: white;
+    margin-left: 6.25rem;
+    border-radius: 2rem;
+    background: url(<path-to-image>) lightgray 50% / cover no-repeat, #D9D9D9;
+    position: relative;
+    margin-bottom: 11.25rem;
+}
+
+#intro img {
+    width: 37.6875rem;
+    height: 31.0625rem;
+    flex-shrink: 0;
+    border-radius: 2rem;
+    background: url(<path-to-image>) lightgray 50% / cover no-repeat, #D9D9D9;
+}
+
+#intro p {
+    width: 34.75rem;
+    color: var(--gray-300, #D1D5DB);
+    text-align: right;
+    font-family: Poppins;
+    font-size: 1.5rem;
+    font-weight: 500;
+    line-height: normal;
+    text-transform: capitalize;
+    position: absolute;
+    top: 6.125rem;
+    right: 0;
+}
+
+#intro div {
+    color: #FFF;
+    text-align: right;
+    font-family: Poppins;
+    font-size: 2rem;
+    font-weight: 700;
+    text-transform: capitalize;
+    position: absolute;
+    width: 28rem;
+    top: 0;
+    right: 0;
+}
+
+#intro hr {
+    width: 22.6875rem;
+    height: 0.125rem;
+    border-radius: 0.4375rem;
+    background: #6A0DAD;
+    position: absolute;
+    top: 3.25rem;
+    right: 0;
+}
+
+/* General card styling */
+.card {
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+    transition: transform 0.4s;
+    height: 18.75rem;
+    width: 22.5rem;
+    background: transparent;
+    border: none;
+    border-radius: 7%;
+    color: #eee;
+    position: relative;
+}
+
+.card:hover {
+    transform: scale(1.05) translateY(0.625rem);
+}
+
+/* Button styling */
+.button {
+    width: 100%;
+    height: 3.75rem;
+    background-color: transparent;
+    color: white;
+    font-size: 0.875rem;
+    border: 0.0625rem solid rgba(255, 255, 255, 0.5);
+    border-radius: 0.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    animation: slideIn 0.5s ease-out forwards;
+    transition: background-color 0.3s, border-color 0.3s;
+}
+
+.button:hover {
+    background-color: #320A4F;
+    border-color: rgba(255, 255, 255, 0.5);
+    color: white;
+}
+
+@keyframes slideIn {
+    0% {
+        transform: translateY(1.25rem);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* Staggered animation delay for each button */
+.button:nth-child(1) { animation-delay: 0.1s; }
+.button:nth-child(2) { animation-delay: 0.2s; }
+.button:nth-child(3) { animation-delay: 0.3s; }
+.button:nth-child(4) { animation-delay: 0.4s; }
+.button:nth-child(5) { animation-delay: 0.5s; }
+.button:nth-child(6) { animation-delay: 0.6s; }
+.button:nth-child(7) { animation-delay: 0.7s; }
+.button:nth-child(8) { animation-delay: 0.8s; }
+.button:nth-child(9) { animation-delay: 0.9s; }
+.button:nth-child(10) { animation-delay: 1s; }
+.button:nth-child(11) { animation-delay: 1.1s; }
+.button:nth-child(12) { animation-delay: 1.2s; }
+
+/* Responsive adjustments */
+@media only screen and (max-width: 768px) {
+    #head {
+        height: 50vh;
+    }
+    
+    #head div {
+        width: 90%;
+        height: 7.5rem;
+        font-size: 2rem;
+        top: 10vh;
+    }
+
+    #after {
+        flex-direction: column;
+        gap: 1.25rem;
+        width: calc(100% - 2.5rem);
+        margin: 3.125rem auto;
+        padding: 0 1.25rem;
+    }
+
+    #after div {
+        min-width: 100%;
+        padding-top: 1.875rem;
+    }
+
+    #intro {
+        flex-direction: column;
+        align-items: center;
+        margin-left: 0;
+        margin-right: 0;
+        margin-bottom: 6.25rem;
+    }
+
+    #intro img, #what img, #end img {
+        display: none !important;
+        opacity: 0 !important;
+        visibility: hidden !important;
+    }
+
+    #intro p, #intro div, #what p, #what div, #end p, #end div {
+        width: 90%;
+        position: static;
+        text-align: center;
+        margin: 0.625rem 0;
+    }
+
+    #mmm {
+        margin: 6.25rem 1.25rem;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    #end {
+        flex-direction: column;
+        align-items: center;
+        height: auto;
+    }
+
+    .card {
+        height: 12.5rem;
+        width: 90%;
+        margin: 1.25rem auto;
+    }
+
+    .button {
+        width: 90%;
+        height: 3.125rem;
+        font-size: 0.75rem;
+    }
+}
+
     </style>
     <script>
         document.addEventListener('DOMContentLoaded', () => {
