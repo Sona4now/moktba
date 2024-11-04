@@ -1284,6 +1284,54 @@
     }
 }
 
+@media (max-width: 768px) {
+    /* وضع النص أسفل الصورة مباشرة ومنع التداخل */
+    #intro, #what, #chan, #end {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 10px;
+        margin: 20px 0; /* إضافة مسافة بين الأقسام */
+    }
+
+    /* ضبط حجم وعرض الصور بشكل مناسب للهواتف */
+    #intro img, #what img, #chan img, #end img {
+        width: 100%;
+        height: auto;
+        object-fit: cover; /* الحفاظ على نسب الصورة */
+        border-radius: 10px;
+        margin-bottom: 15px; /* إضافة مسافة أسفل الصورة */
+    }
+
+    /* تنسيق النص بإضافة خلفية داكنة شفافة */
+    #intro p, #what p, #chan p, #end p {
+        background-color: rgba(0, 0, 0, 0.6); /* خلفية شفافة لتمييز النص */
+        color: #fff; /* لون النص */
+        padding: 15px;
+        border-radius: 8px;
+        font-size: 1rem;
+        text-align: center;
+        margin: 0 auto;
+        width: 90%; /* جعل عرض النص مناسب */
+    }
+
+    /* تحسين الخطوط وتنسيق العناصر */
+    #head div {
+        font-size: 1.5rem;
+        text-align: center;
+        padding: 10px;
+        width: 90%;
+        margin: 0 auto;
+    }
+
+    /* الأزرار */
+    button {
+        width: 90%;
+        font-size: 1rem;
+        margin: 10px auto;
+        padding: 10px;
+    }
+}
 
 
 
