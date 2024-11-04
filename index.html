@@ -1143,112 +1143,95 @@
             top: 98px;
             right: 0px;
         }
-        /* CSS code for mobile view adjustments */
-/* CSS code for mobile view adjustments */
-
-@media only screen and (max-width: 768px) {
-    #head {
-        height: 500px;
+       @media (max-width: 768px) {
+    body {
+        padding: 0 10px;
     }
-
+    
+    #head {
+        height: 600px; /* تقليل الارتفاع للتناسب مع الهواتف */
+    }
+    
     #head div {
         width: 90%;
-        height: 120px;
-        font-size: 2rem;
-        top: 100px;
+        font-size: 2rem; /* تقليل حجم الخط */
+        top: 150px;
         right: 5%;
     }
 
     #after {
-        flex-direction: column;
-        gap: 20px;
-        width: calc(100% - 40px);
+        width: 100%;
+        padding: 0 20px; /* تقليل البادينغ */
         margin: 50px auto;
-        padding: 0 20px;
+        gap: 20px;
     }
 
-    #after div {
-        min-width: 100%;
-        padding-top: 30px;
-    }
-
-    #intro {
-        flex-direction: column;
-        align-items: center;
-        margin-left: 0;
-        margin-right: 0;
-        margin-bottom: 100px;
-    }
-
-    #intro img {
-        display: none !important;
-        opacity: 0 !important;
-        visibility: hidden !important;
-    }
-
-    #intro p, #intro div {
-        width: 90%;
-        position: static;
-        text-align: center;
-        margin: 10px 0;
-    }
-
-    #what {
-        flex-direction: column;
-        align-items: center;
-        height: auto;
-    }
-
-    #what img {
-        display: none !important;
-        opacity: 0 !important;
-        visibility: hidden !important;
-    }
-
-    #what p, #what div {
-        width: 90%;
-        position: static;
-        text-align: center;
-        margin: 10px 0;
-    }
-
-    #mmm {
-        margin: 100px 20px;
-        flex-direction: column;
-        align-items: center;
-    }
-
-    #end {
-        flex-direction: column;
-        align-items: center;
-        height: auto;
-    }
-
-    #end img {
-        display: none !important;
-        opacity: 0 !important;
-        visibility: hidden !important;
-    }
-
-    #end p, #end div {
-        width: 90%;
-        position: static;
-        text-align: center;
-        margin: 10px 0;
+    #intro, #what, #chan, #end, #mmm {
+        margin: 20px 10px;
+        width: 100%;
     }
     
+    #intro p, #what p, #chan p, #mmm p, #end p {
+        font-size: 18px; /* تقليل حجم النصوص */
+        width: 100%;
+        text-align: center;
+        padding: 10px;
+    }
+
     .card {
-        height: 200px;
-        width: 90%;
-        margin: 20px auto;
+        width: 100%;
+        height: auto;
+        margin: 10px auto;
     }
 
     .button {
         width: 90%;
         height: 50px;
-        font-size: 12px;
+    }
+
+    #recommended-section .card-container {
+        grid-template-columns: 1fr 1fr; /* كرتين في الصف لتناسب الهواتف */
+    }
+
+    .navbar .search-bar input {
+        width: 100px; /* تقليل عرض شريط البحث للهواتف */
     }
 }
+ #head img,
+    #intro img,
+    #what img,
+    #chan img,
+    #end img,
+    #recommended-section .card img {
+        width: 100%;
+        height: auto;
+        object-fit: cover; /* يضمن ملء الصورة للإطار بشكل مناسب */
+        border-radius: 10px; /* تقليل الانحناءات لتناسب العرض الصغير */
+    }
+
+    #head div, #after div, #intro div, #what div, #chan div, #end div {
+        width: 100%;
+        text-align: center; /* ضبط النص ليكون في الوسط */
+        padding: 10px;
+    }
+
+    .card img {
+        width: 100%;
+        height: 150px; /* تقليل الارتفاع ليناسب العرض الصغير */
+        object-fit: cover;
+        border-radius: 8px;
+    }
+
+    #recommended-section .card-container {
+        grid-template-columns: 1fr; /* كارت واحد في الصف للتجنب التداخل */
+    }
+
+    /* تعديل صور الكروت بشكل خاص */
+    #recommended-section .card-content {
+        padding: 10px;
+    }
+}
+
 
 
 
