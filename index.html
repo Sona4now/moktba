@@ -1137,63 +1137,15 @@
         right: 0px;
       }
      @media (max-width: 768px) {
-  /* ضبط عرض الأقسام الرئيسية */
-  #head, #intro, #what, #chan, #end, #mmm, #after, #containermt-5 {
-    width: 100%;
-    margin: 0 auto;
-    padding: 10px;
-    box-sizing: border-box;
-  }
-
-  /* تحسين عرض النص داخل الأقسام */
-  #intro p, #what p, #chan p, #end p {
-    font-size: 16px;
-    padding: 10px;
-    text-align: center;
-  }
-
-  /* ضبط الصور داخل الأقسام */
-  #intro img, #what img, #chan img, #end img {
-    width: 100%;
-    height: auto;
-    object-fit: cover;
-    border-radius: 8px;
-    margin-bottom: 10px;
-  }
-
-  /* تحسين عرض الأزرار */
-  button {
-    width: 100%;
-    margin: 10px 0;
-    font-size: 1rem;
-  }
-
-  /* تعديل عرض الشريط العلوي */
-  .navbar {
-    padding: 10px;
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .nav-links {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    text-align: center;
-  }
-
-  /* تحسين عرض الكروت */
-  .card {
-    width: 100%;
-    margin-bottom: 10px;
-  }
-
-  /* تحسين عرض قسم التوصيات */
-  #recommended-section .card-container {
-    grid-template-columns: 1fr;
-    gap: 10px;
-  }
+#intro img,
+#what img,
+#chan img,
+#end img,
+#mmm img,
+ {
+    display: none;
 }
+     }
 
     </style>
     <script>
